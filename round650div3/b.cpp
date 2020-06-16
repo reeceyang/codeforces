@@ -31,21 +31,26 @@ int main() {
     int t;
     cin >> t;
 
-    REP(i, 1, t) {
-        int a, b;
-        cin >> a >> b;
-
-        if (b <= a && 2 * b >= a) {
-            cout << 4 * b * b << "\n";
+    REP(q, 1, t) {
+        int n;
+        cin >> n;
+        int oddBad = 0, evenBad = 0;
+        REP(i, 0, n - 1) {
+            int a;
+            cin >> a;
+            if (i % 2 == 0 && a % 2 != 0) {
+                evenBad++;
+            }
+            if (i % 2 != 0 && a % 2 == 0) {
+                oddBad++;
+            }
         }
-        if (b < a && 2 * b < a) {
-            cout << a * a << "\n";
-        }
-        if (b > a && 2 * a >= b) {
-            cout << 4 * a * a << "\n";
-        }
-        if (b > a && 2 * a < b) {
-            cout << b * b << "\n";
+        if (evenBad == 0 and oddBad == 0) {
+            cout << "0\n";
+        } else if (evenBad == oddBad) {
+            cout << evenBad << "\n";
+        } else {
+            cout << "-1\n";
         }
     }
 }

@@ -30,22 +30,13 @@ int main() {
 
     int t;
     cin >> t;
-
     REP(i, 1, t) {
-        int a, b;
-        cin >> a >> b;
+        string b;
+        cin >> b;
 
-        if (b <= a && 2 * b >= a) {
-            cout << 4 * b * b << "\n";
+        for (int j = 0; j < b.length(); j += 2) {
+            cout << b.at(j);
         }
-        if (b < a && 2 * b < a) {
-            cout << a * a << "\n";
-        }
-        if (b > a && 2 * a >= b) {
-            cout << 4 * a * a << "\n";
-        }
-        if (b > a && 2 * a < b) {
-            cout << b * b << "\n";
-        }
+        cout << b.at(b.length() - 1) << "\n";
     }
 }
